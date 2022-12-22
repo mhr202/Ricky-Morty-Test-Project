@@ -1,11 +1,8 @@
 class RickymortiesController < ApplicationController
   require 'rickmorty'
+  # require 'rest-client'
 
   def index
-    #byebug
-    episodes = Rickmorty::Episode.new.all
-    render json: episodes
+    RickymortyService.perform
   end
-
-  private
 end
