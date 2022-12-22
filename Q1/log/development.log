@@ -1,0 +1,233 @@
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (7.0ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (4.7ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateRickymorties (20221222160341)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "rickymorties" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20221222160341"]]
+  [1m[35m (4.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.1ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2022-12-22 16:04:12.952183"], ["updated_at", "2022-12-22 16:04:12.952183"]]
+  [1m[35m (3.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for ::1 at 2022-12-22 21:04:48 +0500
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/dev/.rbenv/versions/2.7.5/lib/ruby/gems/2.7.0/gems/railties-6.0.6/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/dev/.rbenv/versions/2.7.5/lib/ruby/gems/2.7.0/gems/railties-6.0.6/lib/rails/templates/rails/welcome/index.html.erb (Duration: 7.8ms | Allocations: 403)
+Completed 200 OK in 16ms (Views: 11.5ms | ActiveRecord: 0.0ms | Allocations: 3432)
+
+
+Started GET "/rickymorties" for ::1 at 2022-12-22 21:04:57 +0500
+  
+AbstractController::ActionNotFound (The action 'index' could not be found for RickymortiesController):
+  
+actionpack (6.0.6) lib/abstract_controller/base.rb:131:in `process'
+actionpack (6.0.6) lib/action_controller/metal.rb:190:in `dispatch'
+actionpack (6.0.6) lib/action_controller/metal.rb:254:in `dispatch'
+actionpack (6.0.6) lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
+actionpack (6.0.6) lib/action_dispatch/routing/route_set.rb:33:in `serve'
+actionpack (6.0.6) lib/action_dispatch/journey/router.rb:49:in `block in serve'
+actionpack (6.0.6) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (6.0.6) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (6.0.6) lib/action_dispatch/routing/route_set.rb:834:in `call'
+rack (2.2.4) lib/rack/etag.rb:27:in `call'
+rack (2.2.4) lib/rack/conditional_get.rb:27:in `call'
+rack (2.2.4) lib/rack/head.rb:12:in `call'
+activerecord (6.0.6) lib/active_record/migration.rb:567:in `call'
+actionpack (6.0.6) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.0.6) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (6.0.6) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.0.6) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.6) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
+actionpack (6.0.6) lib/action_dispatch/middleware/debug_exceptions.rb:32:in `call'
+actionpack (6.0.6) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.6) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.6) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.6) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.6) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.6) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.6) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.6) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.6) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.4) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.6) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.6) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.6) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.4) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.6) lib/action_dispatch/middleware/host_authorization.rb:103:in `call'
+railties (6.0.6) lib/rails/engine.rb:527:in `call'
+puma (4.3.12) lib/puma/configuration.rb:228:in `call'
+puma (4.3.12) lib/puma/server.rb:727:in `handle_request'
+puma (4.3.12) lib/puma/server.rb:476:in `process_client'
+puma (4.3.12) lib/puma/server.rb:332:in `block in run'
+puma (4.3.12) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/rickymorties/show" for ::1 at 2022-12-22 21:05:02 +0500
+Processing by RickymortiesController#show as HTML
+  Parameters: {"id"=>"show"}
+Completed 204 No Content in 2160ms (ActiveRecord: 0.0ms | Allocations: 13588)
+
+
+Started GET "/rickymorties" for ::1 at 2022-12-22 21:05:32 +0500
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by RickymortiesController#index as HTML
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms | Allocations: 42)
+
+
+Started GET "/rickymorties" for ::1 at 2022-12-22 21:05:34 +0500
+Processing by RickymortiesController#index as HTML
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms | Allocations: 27)
+
+
+Started GET "/rickymorties/show" for ::1 at 2022-12-22 21:05:36 +0500
+Processing by RickymortiesController#show as HTML
+  Parameters: {"id"=>"show"}
+Completed 204 No Content in 1741ms (ActiveRecord: 0.0ms | Allocations: 1878)
+
+
+Started GET "/rickymorties/show" for ::1 at 2022-12-22 21:06:36 +0500
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by RickymortiesController#show as HTML
+  Parameters: {"id"=>"show"}
+Completed 204 No Content in 6579ms (ActiveRecord: 0.0ms | Allocations: 2103)
+
+
+Started GET "/rickymorties/show" for ::1 at 2022-12-22 21:07:44 +0500
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by RickymortiesController#show as HTML
+  Parameters: {"id"=>"show"}
+Completed 204 No Content in 431ms (ActiveRecord: 0.0ms | Allocations: 2066)
+
+
+Started GET "/rickymorties/show" for ::1 at 2022-12-22 21:09:14 +0500
+Processing by RickymortiesController#show as HTML
+  Parameters: {"id"=>"show"}
+Completed 204 No Content in 1325ms (ActiveRecord: 0.0ms | Allocations: 1874)
+
+
+Started GET "/" for ::1 at 2022-12-22 21:09:34 +0500
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/dev/.rbenv/versions/2.7.5/lib/ruby/gems/2.7.0/gems/railties-6.0.6/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/dev/.rbenv/versions/2.7.5/lib/ruby/gems/2.7.0/gems/railties-6.0.6/lib/rails/templates/rails/welcome/index.html.erb (Duration: 5.5ms | Allocations: 181)
+Completed 200 OK in 7ms (Views: 6.2ms | ActiveRecord: 0.0ms | Allocations: 719)
+
+
+Started GET "/rickymorties/show" for ::1 at 2022-12-22 21:09:55 +0500
+Processing by RickymortiesController#show as HTML
+  Parameters: {"id"=>"show"}
+Completed 204 No Content in 2376ms (ActiveRecord: 0.0ms | Allocations: 1898)
+
+
+Started GET "/rickymorties" for ::1 at 2022-12-22 21:10:56 +0500
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by RickymortiesController#index as HTML
+Completed 204 No Content in 3335ms (ActiveRecord: 0.0ms | Allocations: 2055)
+
+
+Started GET "/rickymorties" for ::1 at 2022-12-22 21:11:20 +0500
+Processing by RickymortiesController#index as HTML
+Completed 204 No Content in 1293ms (ActiveRecord: 0.0ms | Allocations: 1836)
+
+
+Started GET "/rickymorties" for ::1 at 2022-12-22 21:12:18 +0500
+Error occurred while parsing request parameters.
+Contents:
+
+
+
+Processing by RickymortiesController#index as */*
+Completed 204 No Content in 1157ms (ActiveRecord: 0.0ms | Allocations: 1834)
+
+
+Started GET "/rickymorties" for ::1 at 2022-12-22 21:12:53 +0500
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Error occurred while parsing request parameters.
+Contents:
+
+
+
+Processing by RickymortiesController#index as */*
+Completed 204 No Content in 1660ms (ActiveRecord: 0.0ms | Allocations: 2081)
+
+
+Started GET "/rickymorties" for ::1 at 2022-12-22 21:14:48 +0500
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Error occurred while parsing request parameters.
+Contents:
+
+
+
+Processing by RickymortiesController#index as */*
+Completed 204 No Content in 1648ms (ActiveRecord: 0.0ms | Allocations: 2903)
+
+
+Started GET "/" for ::1 at 2022-12-22 21:16:31 +0500
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/dev/.rbenv/versions/2.7.5/lib/ruby/gems/2.7.0/gems/railties-6.0.6/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/dev/.rbenv/versions/2.7.5/lib/ruby/gems/2.7.0/gems/railties-6.0.6/lib/rails/templates/rails/welcome/index.html.erb (Duration: 5.8ms | Allocations: 297)
+Completed 200 OK in 15ms (Views: 8.3ms | ActiveRecord: 0.0ms | Allocations: 2359)
+
+
+Started GET "/rickymorties" for ::1 at 2022-12-22 21:16:37 +0500
+Processing by RickymortiesController#index as HTML
+Started GET "/rickymorties" for ::1 at 2022-12-22 21:20:07 +0500
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Error occurred while parsing request parameters.
+Contents:
+
+
+
+Processing by RickymortiesController#index as */*
+Completed 200 OK in 3297ms (Views: 21.0ms | ActiveRecord: 0.0ms | Allocations: 11502)
+
+
+Started GET "/rickymorties" for ::1 at 2022-12-22 21:27:42 +0500
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Error occurred while parsing request parameters.
+Contents:
+
+
+
+Processing by RickymortiesController#index as */*
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms | Allocations: 733)
+
+
+  
+NoMethodError (undefined method `where' for #<Rickmorty::Episode:0x00007f20f8143b40>
+Did you mean?  when):
+  
+app/controllers/rickymorties_controller.rb:7:in `index'
+Started GET "/rickymorties" for ::1 at 2022-12-22 21:28:23 +0500
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Error occurred while parsing request parameters.
+Contents:
+
+
+
+Processing by RickymortiesController#index as */*
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms | Allocations: 730)
+
+
+  
+NoMethodError (undefined method `id' for #<Rickmorty::Episode:0x00007f20e814dc68>):
+  
+app/controllers/rickymorties_controller.rb:7:in `index'
+Started GET "/rickymorties" for ::1 at 2022-12-22 21:29:31 +0500
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Error occurred while parsing request parameters.
+Contents:
+
+
+
+Processing by RickymortiesController#index as */*
+Completed 200 OK in 6559ms (Views: 2.5ms | ActiveRecord: 0.0ms | Allocations: 6778)
+
+
