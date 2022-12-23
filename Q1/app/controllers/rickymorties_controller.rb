@@ -3,6 +3,10 @@ class RickymortiesController < ApplicationController
   # require 'rest-client'
 
   def index
-    RickymortyService.perform
+    #FOR POSTMAN
+    # render json: RickymortyService.perform
+
+    #FOR CONSOLE
+    puts RickymortyService.perform
   end
 end
